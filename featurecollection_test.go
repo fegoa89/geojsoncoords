@@ -141,15 +141,15 @@ func TestUnmarshalGeometry(t *testing.T) {
 	for _, c := range cases {
 		result, err := UnmarshalGeometry(c.RawObject)
 		if err != nil {
-			t.Errorf("Error unmarshalling FeatureCollectionJSON %s", err)
+			t.Errorf("Error unmarshalling GeometryCollection %s", err)
 		}
 
 		if c.ExpectedGeometries != len(result.Geometries) {
-			t.Errorf("Unexpected number of feature objects. Got %d, expected %d", len(result.Geometries), c.ExpectedGeometries)
+			t.Errorf("Unexpected number of geometry objects. Got %d, expected %d", len(result.Geometries), c.ExpectedGeometries)
 		}
 
 		if c.ExpectedType != result.Type {
-			t.Errorf("Unexpected FeatureCollection type. Got %s, expected %s", result.Type, c.ExpectedType)
+			t.Errorf("Unexpected GeometryCollection type. Got %s, expected %s", result.Type, c.ExpectedType)
 		}
 	}
 }
